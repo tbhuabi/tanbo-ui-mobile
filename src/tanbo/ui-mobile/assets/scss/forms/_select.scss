@@ -1,0 +1,83 @@
+ui-select {
+    display: inline-block;
+
+}
+
+.ui-select-fixed {
+    height: 100%;
+    display: flex;
+}
+
+.ui-raw-input-wrap {
+    flex: 1;
+    position: relative;
+
+}
+
+.ui-raw-input {
+    border: none;
+    outline: none;
+    background: none;
+    text-align: inherit;
+    color: inherit;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    font-size: inherit;
+}
+
+.ui-raw-input-mask {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.ui-select-arrow {
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+}
+
+.ui-select-modal {
+    padding: 0 $grid-column-padding $grid-column-padding;
+    z-index: $mask-z-index + 1;
+}
+
+.ui-select-options {
+    border-radius: 13px;
+    overflow: hidden;
+    background-color: #fff;
+    max-height: 400px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+    }
+}
+
+.ui-select-btn-wrap {
+    margin-top: 10px;
+    background: #fff;
+    border-radius: 13px;
+    overflow: hidden;
+}
+
+.ui-select-btn {
+    display: block;
+    width: 100%;
+    border: none;
+    color: $color-primary;
+    background: none;
+    padding: $list-item-vertical-padding + 3 $grid-column-padding;
+    line-height: 1.4em;
+    font-size: $font-size-larger + 3px;
+    font-weight: 600;
+    transition: background-color .2s;
+    &:active {
+        background-color: rgba(0, 0, 0, .1);
+    }
+}

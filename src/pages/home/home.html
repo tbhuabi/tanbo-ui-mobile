@@ -1,0 +1,13 @@
+<ui-page>
+  <ui-header>
+    <ui-navbar>
+      <ui-title>home</ui-title>
+    </ui-navbar>
+  </ui-header>
+  <ui-content>
+    <ui-refresher></ui-refresher>
+    <ui-scroll [openRefresh]="true">
+      <a routerLink="../detail">detail</a>
+    </ui-scroll>
+  </ui-content>
+</ui-page>

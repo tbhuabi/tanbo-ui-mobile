@@ -1,0 +1,21 @@
+ui-collection {
+    display: block;
+    overflow: hidden;
+    &.ui-fill {
+        @include fill-box;
+        .ui-collection {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+    }
+}
+
+.ui-collection {
+    display: flex;
+    &.ui-vertical {
+        flex-direction: column;
+    }
+}

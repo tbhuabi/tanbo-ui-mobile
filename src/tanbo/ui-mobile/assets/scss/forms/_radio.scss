@@ -1,0 +1,51 @@
+@mixin radio-style($name, $color) {
+    &.ui-#{$name} {
+        color: $color;
+    }
+}
+
+ui-input[type=radio] {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    text-align: center;
+    overflow: hidden;
+    color: $color-default;
+    width: 1em;
+    height: 1em;
+    font-size: 22px;
+    line-height: 1em;
+    @include radio-style(primary, $color-primary);
+    @include radio-style(info, $color-info);
+    @include radio-style(warning, $color-warning);
+    @include radio-style(success, $color-success);
+    @include radio-style(danger, $color-danger);
+
+    &[disabled], &[readonly], &.ui-disabled, &.ui-readonly {
+        opacity: .5;
+        cursor: not-allowed;
+    }
+    &[readonly] {
+        cursor: default;
+    }
+}
+
+.ui-input-radio {
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.ui-radio {
+    width: 100%;
+    height: 100%;
+    font-size: inherit;
+    line-height: 1em;
+    cursor: inherit;
+    display: inline-block;
+}
