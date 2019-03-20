@@ -7,7 +7,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build:lib": "rimraf dist && ng build @tanbo/ui-mobile && gulp",
+    "publish:lib": "npm run build:lib && cd dist/tanbo/ui-mobile && npm publish --access=public && npm run clean:lib",
+    "clean:lib": "rimraf dist && rimraf projects/tanbo/ui-mobile/src/lib/"
   },
   "private": true,
   "dependencies": {
@@ -34,6 +37,12 @@
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "codelyzer": "~4.5.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.0.0",
