@@ -6,10 +6,10 @@ const gulpConcat = require('gulp-concat');
 const gulpSourceMap = require('gulp-sourcemaps');
 
 gulp.task('copy', function () {
-    gulp.src('./projects/tanbo/ui-native/src/assets/**/*').pipe(gulp.dest('./dist/tanbo/ui-native/assets/'));
+    gulp.src('./projects/tanbo/ui-mobile/src/assets/**/*').pipe(gulp.dest('./dist/tanbo/ui-mobile/assets/'));
 });
 gulp.task('scss',  function () {
-    return gulp.src(['./projects/tanbo/ui-native/src/assets/scss/index.scss', './projects/tanbo/ui-native/src/assets/fonts/style.css'])
+    return gulp.src(['./projects/tanbo/ui-mobile/src/assets/scss/index.scss', './projects/tanbo/ui-mobile/src/assets/fonts/style.css'])
         .pipe(gulpSourceMap.init())
         .pipe(gulpSass())
         .pipe(gulpAutoPrefix())
@@ -17,7 +17,7 @@ gulp.task('scss',  function () {
             path: 'index.min.css'
         }))
         .pipe(gulpCssMin())
-        .pipe(gulp.dest('./dist/tanbo/ui-native'));
+        .pipe(gulp.dest('./dist/tanbo/ui-mobile'));
 });
 
 gulp.task('default', ['copy', 'scss']);
