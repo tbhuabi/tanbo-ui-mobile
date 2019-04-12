@@ -4,13 +4,15 @@ import { DOCUMENT } from '@angular/common';
 import { BrowserENV, UI_BROWSER_ENV } from '../../helper';
 import { ListActivatedService } from '../../list/index';
 import { PullDownRefreshController, PullUpLoadController } from '../../scroll/index';
+import { ActionSheetService } from '../../other/index';
 
 @Component({
   selector: 'ui-app',
   templateUrl: './app.component.html',
   providers: [
     PullDownRefreshController,
-    PullUpLoadController
+    PullUpLoadController,
+    ActionSheetService
   ]
 })
 export class AppComponent implements OnInit {
