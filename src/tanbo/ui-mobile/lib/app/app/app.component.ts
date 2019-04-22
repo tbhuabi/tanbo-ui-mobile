@@ -1,10 +1,11 @@
-import { Component, HostListener, Inject, Input, OnInit, HostBinding } from '@angular/core';
+import { Component, HostListener, Inject, Input, OnInit, HostBinding, ElementRef } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 
 import { BrowserENV, UI_BROWSER_ENV } from '../../helper';
 import { ListActivatedService } from '../../list/index';
 import { PullDownRefreshController, PullUpLoadController } from '../../scroll/index';
 import { ActionSheetService } from '../../other/index';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'ui-app',
@@ -48,15 +49,22 @@ export class AppComponent implements OnInit {
   }
 
   private htmlElement: HTMLElement;
+  private subs: Subscription[] = [];
 
   constructor(@Inject(DOCUMENT) private document: any,
               @Inject(UI_BROWSER_ENV) private env: BrowserENV,
+              private elementRef: ElementRef,
+              private actionSheetService: ActionSheetService,
               private listActivatedService: ListActivatedService) {
   }
 
   ngOnInit() {
     this.htmlElement = this.document.querySelector('html');
     this.resize();
+
+    this.subs.push(this.actionSheetService.onInit.subscribe(el => {
+      this.elementRef.nativeElement.appendChild(el);
+    }));
   }
 
   @HostListener('window:resize')

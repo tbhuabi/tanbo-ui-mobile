@@ -8,4 +8,5 @@ import { SelectComponent } from '../../tanbo/ui-mobile/lib/forms/select/select.c
   styleUrls: ['./home.scss']
 })
 export class HomeComponent {
+  value: number = 1;
 }

@@ -3,14 +3,14 @@ import { Observable, Subject } from 'rxjs';
 
 @Injectable()
 export class ActionSheetService {
-  onShow: Observable<HTMLElement>;
-  private showEvent = new Subject<HTMLElement>();
+  onInit: Observable<HTMLElement>;
+  private initEvent = new Subject<HTMLElement>();
 
   constructor() {
-    this.onShow = this.showEvent.asObservable();
+    this.onInit = this.initEvent.asObservable();
   }
 
   push(el: HTMLElement) {
-    this.showEvent.next(el);
+    this.initEvent.next(el);
   }
 }
