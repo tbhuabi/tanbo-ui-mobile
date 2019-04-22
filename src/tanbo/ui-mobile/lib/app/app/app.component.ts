@@ -4,7 +4,7 @@ import { DOCUMENT } from '@angular/common';
 import { BrowserENV, UI_BROWSER_ENV } from '../../helper';
 import { ListActivatedService } from '../../list/index';
 import { PullDownRefreshController, PullUpLoadController } from '../../scroll/index';
-import { ActionSheetService } from '../../other/index';
+import { ActionSheetService, ContentLoadingController } from '../../other/index';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -13,7 +13,8 @@ import { Subscription } from 'rxjs';
   providers: [
     PullDownRefreshController,
     PullUpLoadController,
-    ActionSheetService
+    ActionSheetService,
+    ContentLoadingController
   ]
 })
 export class AppComponent implements OnInit {
