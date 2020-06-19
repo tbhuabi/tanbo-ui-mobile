@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef, OnInit } from '@angular/core';
+import { Component, Input, ElementRef, OnInit, OnDestroy } from '@angular/core';
 
 import { ActionSheetService } from './action-sheet.service';
 
@@ -6,7 +6,7 @@ import { ActionSheetService } from './action-sheet.service';
   selector: 'ui-action-sheet',
   templateUrl: './action-sheet.component.html'
 })
-export class ActionSheetComponent implements OnInit {
+export class ActionSheetComponent implements OnInit, OnDestroy {
   @Input()
   set show(value: boolean) {
     clearTimeout(this.timer);
@@ -38,5 +38,10 @@ export class ActionSheetComponent implements OnInit {
 
   ngOnInit() {
     this.actionSheetService.push(this.elementRef.nativeElement);
+  }
+
+  ngOnDestroy() {
+    const el = this.elementRef.nativeElement;
+    el.parentNode.removeChild(el);
   }
 }

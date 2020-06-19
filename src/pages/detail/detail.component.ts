@@ -5,4 +5,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./detail.component.scss']
 })
 export class DetailComponent {
+  value = '';
 }
